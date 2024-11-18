@@ -1,0 +1,9 @@
+# RoundyFi Eye
+
+I've had this [RoundyFi](https://github.com/sbcshop/RoundyFi) for quite a while now but never really did much with it, I always thought the animated eyes demos on these round displays were pretty cool and was waiting for someone to put in the effort and make the code work on this device.  That doesn't seem to have happened so I've had to figure it out myself.
+
+This takes the [Animated_Eyes_1](https://github.com/Bodmer/TFT_eSPI/tree/master/examples/Generic/Animated_Eyes_1) example from the [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI/tree/master) library and turns it into a stand alone piece of code.
+
+To flash this to your [RoundyFi](https://github.com/sbcshop/RoundyFi) I recommend using the [platform.io IDE](https://platformio.org/platformio-ide) in [VSCode](https://code.visualstudio.com/).  Once that's installed you should just need to connect your [RoundyFi](https://github.com/sbcshop/RoundyFi), open the PlatformIO panel, and click 'Upload'
+
+The original code in the [Animated_Eyes_1](https://github.com/Bodmer/TFT_eSPI/tree/master/examples/Generic/Animated_Eyes_1) demo only catered fro a 128x128 display, the [RoundyFi](https://github.com/sbcshop/RoundyFi) is 240x240 so it didn't look great, I found some larger definitions over in the [Uncanny_Eyes](https://github.com/adafruit/Uncanny_Eyes/tree/master) but just lifting the [defaultEye.h](https://github.com/adafruit/Uncanny_Eyes/blob/master/uncannyEyes/graphics/defaultEye.h) didn't work due to array for the sclera definition being too big to build for the esp12.  So I took the images from that repo, shrunk them down slightly, and regenerated them using the [tablegen.py](https://github.com/adafruit/Uncanny_Eyes/blob/master/convert/tablegen.py) tool.
